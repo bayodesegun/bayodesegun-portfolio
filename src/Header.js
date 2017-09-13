@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import './App.css';
+import Resume from './docs/Resume.pdf';
 
 class Header extends Component {
   render() {
@@ -15,10 +16,10 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavItem eventKey={1} href="#">Resume</NavItem>
-              <NavItem eventKey={2} href="#">LinkedIn</NavItem>
-              <NavItem eventKey={3} href="#">GitHub</NavItem>    
-              <NavItem eventKey={4} href="#">Email</NavItem>          
+              <NavItem eventKey={1} href={Resume} title="Open Resume" target="_blank"><i className="fa fa-book fa-fw fa-2x"></i></NavItem>
+              <NavItem eventKey={2} href="https://www.linkedin.com/in/bayodesegun" target="_blank" ><i className="fa fa-linkedin-square fa-fw fa-2x"></i></NavItem>
+              <NavItem eventKey={3} href="https://www.github.com/bayodesegun" target="_blank" ><i className="fa fa-github fa-fw fa-2x"></i></NavItem>    
+              <NavItem eventKey={4} href="mailto:bayodesegun@bayodesegun.com" title="Send Email"><i className="fa fa-envelope-o fa-fw fa-2x"></i></NavItem>          
             </Nav>
           </Navbar.Collapse>
         </Navbar>
