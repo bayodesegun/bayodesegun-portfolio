@@ -11,6 +11,12 @@
   vertical-align: center;
 }
 
+.carousel-cap {
+	background-color: black;
+	color: white;
+	opacity: 100%;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
