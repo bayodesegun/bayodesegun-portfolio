@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Grid, Row, Col, Thumbnail, Button} from 'react-bootstrap';
+import {Grid, Row, Col, Thumbnail, Button, Breadcrumb} from 'react-bootstrap';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Projectpage from './Projectpage.js';
@@ -15,19 +15,18 @@ class Mainpage extends Component {
   }
 
   renderProject(e) {
+    console.log(e.target.id);
     ReactDOM.render(<Projectpage projectId={e.target.id} />, document.getElementById('root'));
   }
 
   render() {    
-    const heading = "<My Portfolio/>";
-
-    const projectList = projects.map((project, index) =>
+    const projectList = projects.map((project, index) =>    
       <Col key={index} xs={12} md={4}>
-        <Thumbnail src={project.src} alt={project.name}>
+        <Thumbnail  src={project.src} alt={project.name}>
           <h3>{project.name}</h3>
           <p>{project.description}</p>
           <p>
-            <Button id={index} bsStyle="primary" onClick={this.renderProject}>Details...</Button>
+            <Button id={index} bsStyle="success" onClick={this.renderProject}>Click me for details...</Button>
           </p>
         </Thumbnail>
       </Col>   
@@ -36,8 +35,12 @@ class Mainpage extends Component {
     return (      
       <Grid className="App">
         <Header />
-        <Row>        
-          <h2><code>{heading}</code></h2>
+        <Row className="text-left">        
+          <Breadcrumb>
+            <Breadcrumb.Item active>
+              Projects
+            </Breadcrumb.Item>
+          </Breadcrumb>
         </Row>
         {projectList}
         <Footer />   

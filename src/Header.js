@@ -6,12 +6,13 @@ import Resume from './docs/Resume.pdf';
 
 class Header extends Component {
   render() {
+    const brand = "<BayodeAderinola />";
     return (
       <div className="App">
         <Navbar inverse fixedTop collapseOnSelect>
           <Navbar.Header>
-            <Navbar.Brand>
-              <a>Bayode Aderinola</a>
+            <Navbar.Brand className="big-header">
+              <a><code>{brand}</code></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

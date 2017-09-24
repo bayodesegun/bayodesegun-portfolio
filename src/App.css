@@ -17,6 +17,11 @@
 	opacity: 100%;
 }
 
+.big-header {
+	font-size: 23px !important;
+  line-height: normal !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
