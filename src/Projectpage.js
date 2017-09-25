@@ -42,12 +42,12 @@ class Projectpage extends Component {
         </Breadcrumb>
       </Row>
       <Row>
-        <Col xs={12} md={8} className="App">
+        <Col xs={12} md={7} className="App">
           <Carousel>
             {carousel}
           </Carousel>
         </Col> 
-        <Col xs={12} md={4}>
+        <Col xs={12} md={5}>
           <div>
             <h3>{project.name}</h3>            
             <div dangerouslySetInnerHTML={{__html: project.details}} />
@@ -56,7 +56,7 @@ class Projectpage extends Component {
             </p>
             <div>
               <b>Technologies</b>
-              <h1 className="nav" dangerouslySetInnerHTML={{__html: project.tech}} />
+              <h1 dangerouslySetInnerHTML={{__html: project.tech}} />
             </div>
           </div>
         </Col>

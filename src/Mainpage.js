@@ -26,7 +26,7 @@ class Mainpage extends Component {
           <h3>{project.name}</h3>
           <p>{project.description}</p>
           <p>
-            <Button id={index} bsStyle="success" onClick={this.renderProject}>Click me for details...</Button>
+            <Button id={index} bsStyle="success" onClick={this.renderProject}>Click for details...</Button>
           </p>
         </Thumbnail>
       </Col>   
