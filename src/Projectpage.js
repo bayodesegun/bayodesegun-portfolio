@@ -30,7 +30,7 @@ class Projectpage extends Component {
     const live = project.urls.live ? project.urls.live : '/#';
     const target = project.urls.repo ? '_blank' : '_self';
     const prev = (this.props.projectId > 0) ? (this.props.projectId - 1) : (projects.length - 1);
-    const next = (this.props.projectId < projects.length - 1) ? (parseInt(this.props.projectId) + 1) : 0;
+    const next = (this.props.projectId < (projects.length - 1)) ? (parseInt(this.props.projectId, 10) + 1) : 0;
     const carousel = project.images.map((image, index) =>
       <Carousel.Item key={index}>
         <img className="carousel-img" alt={image.caption} src={image.src}/>
