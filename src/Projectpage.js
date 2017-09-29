@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Grid, Row, Col, Carousel, Breadcrumb} from 'react-bootstrap';
+import {Grid, Row, Col, Carousel} from 'react-bootstrap';
 import Mainpage from './Mainpage.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
@@ -12,15 +12,25 @@ class Projectpage extends Component {
     super(props);
 
     // This binding is necessary to make `this` work in the callback
-    this.back = this.back.bind(this);
+    this.home = this.home.bind(this);
   }
 
-  back(e) {
+  home(e) {
     ReactDOM.render(<Mainpage />, document.getElementById('root'));
   }
+
+  prevNext(e) {
+    const main = new Mainpage();
+    main.renderProject(e);
+  }  
   
   render() {
     const project = projects[this.props.projectId];
+    const repo = project.urls.repo ? project.urls.repo : '/#';
+    const live = project.urls.live ? project.urls.live : '/#';
+    const target = project.urls.repo ? '_blank' : '_self';
+    const prev = (this.props.projectId > 0) ? (this.props.projectId - 1) : (projects.length - 1);
+    const next = (this.props.projectId < projects.length - 1) ? (parseInt(this.props.projectId) + 1) : 0;
     const carousel = project.images.map((image, index) =>
       <Carousel.Item key={index}>
         <img className="carousel-img" alt={image.caption} src={image.src}/>
@@ -31,16 +41,18 @@ class Projectpage extends Component {
     );
     const projectTemplate = (
     <div>
-      <Row>
-        <Breadcrumb>
-          <Breadcrumb.Item href="/#" onClick={this.back}>
-            Projects
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>
-            {project.name}
-          </Breadcrumb.Item>
-        </Breadcrumb>
+      <Row className="alert-info">
+        <Col className="text-left" xs={4}>
+          <a id={prev} onClick={this.prevNext} className="btn btn-link" href="/#"><i className="fa fa-angle-double-left" aria-hidden="true"></i> Prev Project</a>
+        </Col>
+        <Col className="text-center" xs={4}>
+          <a onClick={this.home} className="btn btn-link" href="/#"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
+        </Col>
+        <Col className="text-right" xs={4}>
+          <a id={next} onClick={this.prevNext} className="btn btn-link" href="/#">Next Project <i className="fa fa-angle-double-right" aria-hidden="true"></i> </a>
+        </Col>
       </Row>
+      <br />
       <Row>
         <Col xs={12} md={7} className="App">
           <Carousel>
@@ -49,14 +61,24 @@ class Projectpage extends Component {
         </Col> 
         <Col xs={12} md={5}>
           <div>
-            <h3>{project.name}</h3>            
+            <h4 className="alert-info">What is {project.name}?</h4>            
             <div dangerouslySetInnerHTML={{__html: project.details}} />
-            <p>
-              <b>Role:</b> {project.role}
-            </p>
             <div>
-              <b>Technologies</b>
-              <h1 dangerouslySetInnerHTML={{__html: project.tech}} />
+              <h4 className="alert-info">My role and contribution</h4> 
+              <p>{project.role}</p>
+            </div>
+            <div>
+              <h4 className="alert-info">Technologies used</h4>
+              <div className="tech-stack" dangerouslySetInnerHTML={{__html: project.tech}} />
+            </div>
+            <div>
+              <h4 className="alert-info">Project links</h4>
+              <p><code> <i className="fa fa-code" aria-hidden="true"></i> Repository:</code>  
+                <a target={target} href={repo}>{ project.urls.repo ? project.urls.repo : 'private'} <i className="fa fa-external-link-square" aria-hidden="true"></i></a>
+              </p>
+              <p><code><i className="fa fa-globe" aria-hidden="true"></i> Live url:</code> 
+                <a target={target} href={live}>{ project.urls.live ? project.urls.live : 'internal'} <i className="fa fa-external-link-square" aria-hidden="true"></i></a>
+              </p> 
             </div>
           </div>
         </Col>
