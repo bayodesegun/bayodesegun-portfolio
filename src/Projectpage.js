@@ -42,14 +42,16 @@ class Projectpage extends Component {
     const projectTemplate = (
     <div>
       <Row className="alert-info">
-        <Col className="text-left" xs={4}>
-          <a id={prev} onClick={this.prevNext} className="btn btn-link" href="/#"><i className="fa fa-angle-double-left" aria-hidden="true"></i> Prev Project</a>
-        </Col>
-        <Col className="text-center" xs={4}>
-          <a onClick={this.home} className="btn btn-link" href="/#"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
-        </Col>
-        <Col className="text-right" xs={4}>
-          <a id={next} onClick={this.prevNext} className="btn btn-link" href="/#">Next Project <i className="fa fa-angle-double-right" aria-hidden="true"></i> </a>
+        <Col className="col-md-6 col-md-offset-3 col-xs-12">
+          <Col className="text-left" xs={4}>
+            <a id={prev} onClick={this.prevNext} className="btn btn-link" href="/#"><i className="fa fa-angle-double-left" aria-hidden="true"></i> Prev Project</a>
+          </Col>
+          <Col className="text-center" xs={4}>
+            <a onClick={this.home} className="btn btn-link" href="/#"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
+          </Col>
+          <Col className="text-right" xs={4}>
+            <a id={next} onClick={this.prevNext} className="btn btn-link" href="/#">Next Project <i className="fa fa-angle-double-right" aria-hidden="true"></i> </a>
+          </Col>
         </Col>
       </Row>
       <br />
