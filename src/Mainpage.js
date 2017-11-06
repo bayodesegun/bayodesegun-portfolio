@@ -39,8 +39,8 @@ class Mainpage extends Component {
         <Row className="intro">
           <Col className="col-md-6 col-md-offset-3 col-xs-12">
             <Image circle  src={bayode} title="Bayode at work..." alt="Bayode at work" />
-            <h4>Hi, I'm <b>Bayode</b>, a <code>support & full stack software engineer</code>, aka <code><i>support developer</i></code>. 
-            I love solving problems by supporting and building software. I'm always on the lookout for exciting challenges in 
+            <h4>Hi, I'm <b>Bayode</b>, a <code>full stack software & support engineer</code>, aka <code><i>support developer</i></code>.
+            I love solving problems by supporting and building software. I thrive on exciting challenges in
             <code>technical support and desktop, web & mobile app development</code>.</h4>
           </Col>
         </Row>
