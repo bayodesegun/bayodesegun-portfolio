@@ -4,8 +4,9 @@ import {Grid, Row, Col, Thumbnail, Button, Image} from 'react-bootstrap';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Projectpage from './Projectpage.js';
-import projects from './projects.js';
-import bayode from './images/bayode.jpg';
+import projects from '../data/projects.js';
+import bayode from '../images/bayode.jpg';
+
 
 class Mainpage extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Mainpage extends Component {
 
   render() {
     const portfolio = '<Portfolio />';
-    const projectList = projects.map((project, index) =>    
+    const projectList = projects.map((project, index) =>
       <Col key={index} xs={12} md={3}>
         <Thumbnail  src={project.src} alt={project.name}>
           <h3>{project.name}</h3>
@@ -30,10 +31,10 @@ class Mainpage extends Component {
             <Button id={index} bsStyle="success" onClick={this.renderProject}>Click for details...</Button>
           </p>
         </Thumbnail>
-      </Col>   
+      </Col>
     );
 
-    return (      
+    return (
       <Grid className="App">
         <Header />
         <Row className="intro">
@@ -47,8 +48,8 @@ class Mainpage extends Component {
         <hr />
         <h3 className="text-center alert-info"><code>{portfolio}</code></h3>
         {projectList}
-        <Footer />   
-      </Grid>         
+        <Footer />
+      </Grid>
     );
   }
 }

@@ -4,7 +4,8 @@ import {Grid, Row, Col, Carousel} from 'react-bootstrap';
 import Mainpage from './Mainpage.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
-import projects from './projects.js';
+import projects from '../data/projects.js';
+
 
 class Projectpage extends Component {
 
@@ -22,8 +23,8 @@ class Projectpage extends Component {
   prevNext(e) {
     const main = new Mainpage();
     main.renderProject(e);
-  }  
-  
+  }
+
   render() {
     const project = projects[this.props.projectId];
     const repo = project.urls.repo ? project.urls.repo : '/#';
@@ -60,13 +61,13 @@ class Projectpage extends Component {
           <Carousel>
             {carousel}
           </Carousel>
-        </Col> 
+        </Col>
         <Col xs={12} md={5}>
           <div>
-            <h4 className="alert-info">What is {project.name}?</h4>            
+            <h4 className="alert-info">What is {project.name}?</h4>
             <div dangerouslySetInnerHTML={{__html: project.details}} />
             <div>
-              <h4 className="alert-info">My role and contribution</h4> 
+              <h4 className="alert-info">My role and contribution</h4>
               <p>{project.role}</p>
             </div>
             <div>
@@ -75,20 +76,20 @@ class Projectpage extends Component {
             </div>
             <div>
               <h4 className="alert-info">Project links</h4>
-              <p><code> <i className="fa fa-code" aria-hidden="true"></i> Repository:</code>  
+              <p><code> <i className="fa fa-code" aria-hidden="true"></i> Repository:</code>
                 <a target={target} href={repo}>{ project.urls.repo ? project.urls.repo : 'private'} <i className="fa fa-external-link-square" aria-hidden="true"></i></a>
               </p>
-              <p><code><i className="fa fa-globe" aria-hidden="true"></i> Live url:</code> 
+              <p><code><i className="fa fa-globe" aria-hidden="true"></i> Live url:</code>
                 <a target={target} href={live}>{ project.urls.live ? project.urls.live : 'internal'} <i className="fa fa-external-link-square" aria-hidden="true"></i></a>
-              </p> 
+              </p>
             </div>
           </div>
         </Col>
       </Row>
       <Row>
-        
-      </Row> 
-    </div>   
+
+      </Row>
+    </div>
     );
 
     return (
@@ -96,7 +97,7 @@ class Projectpage extends Component {
         <Header />
         {projectTemplate}
         <Footer />
-      </Grid>      
+      </Grid>
     );
   }
 }
