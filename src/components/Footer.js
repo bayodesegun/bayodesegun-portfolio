@@ -10,7 +10,7 @@ class Footer extends Component {
         <Navbar inverse fixedBottom>
           <Navbar.Header>
             <Navbar.Brand className="small-header">
-              <p> &copy; 2017 Bayode Aderinola </p>
+              <p> &copy; 2017-2023 Bayode Aderinola </p>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
